@@ -1,0 +1,10 @@
+[database]
+url = "mongodb://admin:admin@localhost:27017"
+user = "sdt_user"
+pwd = "senha123"
+host = "localhost"
+port = "27017"
+name = "sdt_db"
+
+[server]
+address = "127.0.0.1:8080"
