@@ -1,0 +1,10 @@
+[database]
+name = "sdt_db_dev"
+host = "localhost"
+port = "27017"
+username = "sdt_user_dev"
+password =  "senha123"
+collection = "Projetos"
+
+[application]
+name = "api-sdt-dev"

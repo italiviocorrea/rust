@@ -1,0 +1,11 @@
+[database]
+name = "sdt_db_prd"
+host = "localhost"
+port = "27017"
+username = "sdt_user_prd"
+password =  "senha123"
+collection = "Projetos"
+
+[application]
+name = "api-sdt-prd"
+

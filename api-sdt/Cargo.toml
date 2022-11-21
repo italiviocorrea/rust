@@ -1,0 +1,42 @@
+[package]
+name = "api-sdt"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "api-sdt"
+path = "src/main.rs"
+
+[dependencies]
+actix-web = "4.2.1"
+actix-rt = "2.7.0"
+actix-web-opentelemetry = "0.13.0"
+actix-files = "0.6.2"
+config = "0.13"
+lazy_static =  "1.4"
+log = "0.4.17"
+anyhow = "1.0.66"
+dotenv = "0.15.0"
+opentelemetry-jaeger = "0.17.0"
+opentelemetry = {version = "0.18.0", default-features = false, features = ["trace","rt-tokio", "metrics"]}
+futures = "0.3"
+
+tokio = { version = "1.0", features = ["full"] }
+tracing = { version = "0.1", features = ["attributes"] }
+tracing-opentelemetry = "0.18.0"
+tracing-subscriber = { version = "0.3", features = ["json", "time","env-filter"] }
+
+# bibblioteca de serialização de dados
+serde = {version = "1.0.147", features = ["derive"]}
+serde_json = "1.0.83"
+
+# Outros utilitários
+chrono = {version ="0.4.23", features = ["serde"]}
+
+[dependencies.mongodb]
+version = "2.3.1"
+default-features = false
+features = ["async-std-runtime"]
