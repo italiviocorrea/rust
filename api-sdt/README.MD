@@ -6,6 +6,7 @@ Este exemplo mostra uma API Restfull CRUD, utilizando como banco de dados o Mong
 - RUST versão 1.64
 - Actix web framework
 - MongoDB última versão
+- OpenTelemetry com Jaeger
 
 ### Para executar a aplicação faça os seguintes passos:
 
