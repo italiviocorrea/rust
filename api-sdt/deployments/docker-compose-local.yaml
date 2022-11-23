@@ -31,7 +31,7 @@ services:
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: sdt_user
+      ME_CONFIG_MONGODB_ADMINUSERNAME: sdt_user_prd
       ME_CONFIG_MONGODB_ADMINPASSWORD: senha123
       ME_CONFIG_MONGODB_SERVER: mongodb
     depends_on:
