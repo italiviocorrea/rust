@@ -142,11 +142,6 @@ paths:
                                 esquema: 'evCancNF3e_v1.00.xsd'
                               - nome: 'Substituicao'
                                 esquema: 'evSubNF3e_v1.00.xsd'
-                        casosTestes:
-                          - nome: 'Gerar e enviar Lote de NF3e perfeito'
-                            pipeline: 'template base'
-                          - nome: 'Gerar e enviar Lote de NF3e rejeicao 252'
-                            pipeline: 'template_rej_252'
                     ambientes:
                       - id: 1
                         nome: 'PRODUCAO'
@@ -235,11 +230,6 @@ paths:
                                 esquema: 'evCancNFCom_v1.00.xsd'
                               - nome: 'Substituicao'
                                 esquema: 'evSubNFCom_v1.00.xsd'
-                        casosTestes:
-                          - nome: 'Gerar e enviar Lote de NFCom perfeito'
-                            pipeline: 'template base'
-                          - nome: 'Gerar e enviar Lote de NFCom rejeicao 252'
-                            pipeline: 'template_rej_252'
                     ambientes:
                       - id: 1
                         nome: 'PRODUCAO'
@@ -403,11 +393,6 @@ paths:
                             esquema: 'evCancNF3e_v1.00.xsd'
                           - nome: 'Substituicao'
                             esquema: 'evSubNF3e_v1.00.xsd'
-                    casosTestes:
-                      - nome: 'Gerar e enviar Lote de NF3e perfeito'
-                        pipeline: 'template base'
-                      - nome: 'Gerar e enviar Lote de NF3e rejeicao 252'
-                        pipeline: 'template_rej_252'
                 ambientes:
                   - id: 1
                     nome: 'PRODUCAO'
@@ -585,15 +570,6 @@ components:
         descricao:
           type: 'string'
           description: 'Descrição sobre o esquema XSD'
-    casoTeste:
-      type: 'object'
-      properties:
-        nome:
-          type: 'string'
-          description: 'nome do caso de teste'
-        pipeline:
-          type: 'string'
-          description: 'Sequencia ou passos a serem executados'
     versao:
       type: 'object'
       description: 'Versão do serviço web'
@@ -609,11 +585,6 @@ components:
           description: 'Lista de Serviços webs disponíveis na versão do DF-e'
           items:
             $ref: '#/components/schemas/servico'
-        casosTestes:
-          type: 'array'
-          description: 'Lista de casos de testes para os serviços webs'
-          items:
-            $ref: '#/components/schemas/casoTeste'
     projeto:
       type: 'object'
       properties:
