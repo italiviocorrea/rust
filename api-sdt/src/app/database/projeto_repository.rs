@@ -6,7 +6,7 @@ use mongodb::{Client, Collection};
 use mongodb::bson::{doc};
 use mongodb::results::{InsertOneResult, UpdateResult};
 
-use crate::domain::models::projeto::{create_projeto_name_unique, Projeto};
+use crate::domain::models::projeto::Projeto;
 use crate::errors::ApiSdtError;
 use crate::settings::Settings;
 
@@ -28,7 +28,7 @@ impl ProjetoMongoDBRepository {
             .expect("Erro ao conectar com o banco de dados!");
         let db = client.database(&settings.database.name);
         let col: Collection<Projeto> = db.collection("Projetos");
-        create_projeto_name_unique(&client, settings).await;
+        //create_projeto_name_unique(&client, settings).await;
 
         ProjetoMongoDBRepository { col }
     }

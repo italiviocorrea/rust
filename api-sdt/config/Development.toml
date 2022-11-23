@@ -6,5 +6,8 @@ username = "sdt_user_dev"
 password =  "senha123"
 collection = "Projetos"
 
+[jaeger]
+endpoint = "localhost:6831"
+
 [application]
 name = "api-sdt-dev"

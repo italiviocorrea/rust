@@ -1,10 +1,13 @@
 [database]
 name = "sdt_db_hom"
-host = "localhost"
+host = "mongodb"
 port = "27017"
 username = "sdt_user_hom"
 password =  "senha123"
 collection = "Projetos"
+
+[jaeger]
+endpoint = "jaeger:6831"
 
 [application]
 name = "api-sdt-hom"

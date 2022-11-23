@@ -10,6 +10,12 @@ pub struct Log {
 
 #[derive(Debug, Deserialize, Clone)]
 #[allow(unused)]
+pub struct Jaeger {
+    pub endpoint: String,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+#[allow(unused)]
 pub struct Server {
     pub host: String,
     pub port: u16,
@@ -22,6 +28,7 @@ pub struct Settings {
     pub log: Log,
     pub server: Server,
     pub database: Database,
+    pub jaeger: Jaeger,
 }
 
 #[derive(Debug, Deserialize, Clone)]

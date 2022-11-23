@@ -1,28 +1,29 @@
-FROM golang:1-alpine3.16 as builder
-WORKDIR /work
+FROM rust as build
+RUN apt-get update && apt-get -y upgrade
+RUN apt-get install libssl-dev
+RUN apt-get -y install pkg-config musl musl-dev musl-tools
+RUN rustup target add x86_64-unknown-linux-musl
 
-## download dos modulos em camada separada para permitir cache para o docker build
-#COPY ./go.mod ./go.sum ./
-#RUN go mod download
-#
-## copiar o codigo fonte
-#COPY . .
-#
-#RUN CGO_ENABLED=0 go build -o apisdt ./cmd/apisdt/main.go
+# copy app into Docker image
+COPY . /app
 
-FROM alpine:3.16
-MAINTAINER Italivio Correa <italiviocorrea@gmail.com>
+# Set the workdirectory
+WORKDIR /app
 
-#RUN apk add --no-cache ca-certificates
-#
-#WORKDIR /bin
-#COPY --from=builder /work/apisdt /bin/apisdt
-#ADD ./api/swaggerui /bin/api/swaggerui
-#COPY app-prd.env /bin/app.env
+# build the app
+RUN cargo build --target x86_64-unknown-linux-musl --release --bin api-sdt
 
-# COPY ./app.env ./app.env
-# variaveis de ambiente com valores default
+
+#FROM gcr.io/distroless/cc-debian11
+FROM alpine:3.16.0 AS runtime
+
+COPY --from=build /app/target/x86_64-unknown-linux-musl/release/api-sdt /app/api-sdt
+
+WORKDIR /app
+
+COPY ./api ./api
+COPY ./config ./config
 
 EXPOSE 8080
 
-CMD /bin/apisdt
+CMD ["./api-sdt"]

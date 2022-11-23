@@ -1,12 +1,14 @@
 use opentelemetry::global;
 use tracing_subscriber::{EnvFilter, prelude::*};
+use crate::settings::Settings;
 
-pub fn init_telemetry() {
+pub fn init_telemetry(settings: Settings) {
 
     global::set_text_map_propagator(opentelemetry_jaeger::Propagator::new());
 
     // Define Tracer
     let tracer = opentelemetry_jaeger::new_agent_pipeline()
+        .with_endpoint(settings.jaeger.endpoint)
         .with_service_name("api-sdt")
         .install_simple()
         .expect("Não foi possível instalar o Jaeger Tracer");

@@ -13,7 +13,7 @@ async fn main() -> std::io::Result<()> {
     let settings: Settings = Settings::new().unwrap();
 
     // Inicia a observalidade com OpenTemetry
-    init_telemetry();
+    init_telemetry(settings.clone());
 
     // executa o Servidor Rest
     let address = format!("{}:{}", settings.server.host, settings.server.port);
