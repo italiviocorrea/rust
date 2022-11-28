@@ -15,7 +15,8 @@ RUN cargo build --target x86_64-unknown-linux-musl --release --bin api-sdt
 
 
 #FROM gcr.io/distroless/cc-debian11
-FROM alpine:3.16.0 AS runtime
+#FROM alpine:3.16.0 AS runtime
+FROM scratch
 
 COPY --from=build /app/target/x86_64-unknown-linux-musl/release/api-sdt /app/api-sdt
 
