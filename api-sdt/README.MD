@@ -31,7 +31,7 @@ Para acessar a mongo-express digite no seu browser preferido :
  http://localhost:8081/
 ```
 
-#### E para finalizar você pode utilizar a aplicação fiber use o comando abaixo
+#### E para finalizar você pode utilizar a aplicação  use o comando abaixo
 ```bash
  docker-compose -f deployments/docker-compose-local.yaml down
 ```
