@@ -15,6 +15,7 @@ RUN cargo build --release --bin couchdb-kafka-connector
 
 
 FROM scratch
+MAINTAINER Italivio Correa
 
 COPY --from=builder /lib/x86_64-linux-gnu/libssl.so.3 /lib/x86_64-linux-gnu/libssl.so.3
 COPY --from=builder /lib/x86_64-linux-gnu/libcrypto.so.3 /lib/x86_64-linux-gnu/libcrypto.so.3
