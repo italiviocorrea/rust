@@ -10,7 +10,7 @@ Também as configurações do kafka e do zookeeper podem ser feitas através de 
 
 ### Arquitetura da Solução
 
-![Processo principal](/home/icorrea/Projetos/github/rust/couchdb-kafka-connector/docs/streaming_bcadastro.drawio.svg)
+![Processo principal](./docs/streaming_bcadastro.drawio.svg)
 
 ### Tecnologias utilizadas
 
